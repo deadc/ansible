@@ -11,7 +11,7 @@
   lineinfile: "dest=/etc/sudoers state=present regexp='^%sudo' line='%sudo ALL=(ALL) NOPASSWD: ALL'"
 
 - name: Add Users
-  user: name={{ item.key }} shell=/bin/bash state={{ item.state }} groups={{ item.groups }}
+  user: name={{ item.key }} shell=/bin/bash state={{ item.value.state }} groups={{ item.value.groups }}
   with_dict:
     "{{ users | default({}) }}"
   tags:
