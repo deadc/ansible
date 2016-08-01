@@ -1,6 +1,6 @@
 ---
 
-admin_group: sudo,docker
+admin_group: sudo
 
 
 users_admin:
