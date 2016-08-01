@@ -1,0 +1,45 @@
+---
+
+- name: Install default packages
+  apt: pkg={{ item }} state=present update_cache=yes cache_valid_time=3600
+  when: ansible_os_family == 'Debian'
+  with_items:
+     "{{ packages }}"
+  tags: pkgs
+
+- name: Update sudoers file
+  lineinfile: "dest=/etc/sudoers state=present regexp='^%sudo' line='%sudo ALL=(ALL) NOPASSWD: ALL'"
+
+
+- name: Add admin users
+  user: name={{ item.key }} shell=/bin/bash state=present groups={{ admin_group }}
+  with_dict:
+    "{{ users_admin | default({}) }}"
+  tags:
+    - users_admin
+    - common
+
+- name: Authorized admin users keys
+  authorized_key: "user={{ item.key }} key='{{ item.value.pub_key }}'"
+  with_dict:
+    "{{ users_admin | default({}) }}"
+  tags:
+    - users_admin
+    - common
+
+- name: Add common users
+  user: name={{ item.key }} shell=/bin/bash state=present groups={{ dev_group }}
+  with_dict:
+    "{{ users | default({}) }}"
+  tags:
+    - users
+    - common
+
+- name: Authorized common users keys
+  authorized_key: "user={{ item.key }} key='{{ item.value.pub_key }}'"
+  with_dict:
+    "{{ users | default({}) }}"
+  tags:
+    - users
+    - common
+

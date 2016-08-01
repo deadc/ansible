@@ -1,0 +1,20 @@
+[{{ app_name }}]
+listen                = {{ listen }}
+listen.owner          = {{ listen_owner }}
+listen.group          = {{ listen_group }}
+listen.mode           = {{ listen_mode }}
+user                  = {{ fpm_user }}
+group                 = {{ fpm_group }}
+
+pm                    = {{ fpm_method }}
+pm.max_children       = {{ max_children }}
+pm.start_servers      = {{ start_servers }}
+pm.min_spare_servers  = {{ min_spare_servers }}
+pm.max_spare_servers  = {{ max_spare_servers }}
+pm.max_requests       = {{ max_requests }}
+pm.status_path        = {{ status_path }}
+
+listen.backlog        = {{ listen_backlog }}
+
+chdir                 = /
+

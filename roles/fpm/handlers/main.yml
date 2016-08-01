@@ -1,0 +1,9 @@
+---
+# handlers file for fpm
+
+- name: restart fpm
+  service: name=php5-fpm state=restarted
+
+- name: reload fpm
+  service: name=php5-fpm state=reloaded
+

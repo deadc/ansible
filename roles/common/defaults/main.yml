@@ -1,0 +1,23 @@
+---
+
+packages:
+    - vim
+    - dnsutils
+    - mtr-tiny
+    - whois
+    - net-tools
+    - htop
+    - sudo
+    - telnet
+    - python-pip
+    - python-boto
+    - mlocate
+    - ntp
+    - tcpdump
+    - nmap
+    - git
+    - less
+    - curl
+    - tzdata
+    - nginx
+

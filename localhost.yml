@@ -1,0 +1,10 @@
+---
+
+- hosts: localhost
+  vars:
+    app_name: deadc
+    max_spare_servers: 50
+  roles:
+    - common
+    - fpm
+  tags: lo
