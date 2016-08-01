@@ -3,7 +3,10 @@
 admin_group: sudo
 
 
-users_admin:
+users:
    deadcow:
+      name: 'John Doe'
+      state: 'present'
       pub_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCf5jioPXAveA1TNndC9yBWtoP3DL7XIOkAdaCxBpxmt5n9DLxEleF53Kz7rD22tpr6VZ5pH8r9lqaTiVI0yx10uMBpX909C6tvjspcsVjkvAH9a81MY0KhbxTaM2IEjv9+bclklRuw2ZcHV3R5unOp/njoYo+kH2QJoOLvjFCC9JqUEmJWd5hY+Tm5uryz7wDdU5pdNcPeN0bCcFoXvzPTk92WaWQsMrler7R81XHYNYg7NGqtHgk++eWrWeW+yIwUMjEwS9yhYXI2WOlrAJWlWi7QOUpvgncyTaQ+lKy1PUYPqSe6XHs/6N3h43hBIMM1mUgb+sL2xG+oyro06M7X deadcow@ruthless'
-
+      groups:
+        - {{ admin_group }}

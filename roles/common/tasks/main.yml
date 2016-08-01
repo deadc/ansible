@@ -10,25 +10,8 @@
 - name: Update sudoers file
   lineinfile: "dest=/etc/sudoers state=present regexp='^%sudo' line='%sudo ALL=(ALL) NOPASSWD: ALL'"
 
-
-- name: Add admin users
-  user: name={{ item.key }} shell=/bin/bash state=present groups={{ admin_group }}
-  with_dict:
-    "{{ users_admin | default({}) }}"
-  tags:
-    - users_admin
-    - common
-
-- name: Authorized admin users keys
-  authorized_key: "user={{ item.key }} key='{{ item.value.pub_key }}'"
-  with_dict:
-    "{{ users_admin | default({}) }}"
-  tags:
-    - users_admin
-    - common
-
-- name: Add common users
-  user: name={{ item.key }} shell=/bin/bash state=present groups={{ dev_group }}
+- name: Add Users
+  user: name={{ item.key }} shell=/bin/bash state={{ item.state }} groups={{ item.groups }}
   with_dict:
     "{{ users | default({}) }}"
   tags:
