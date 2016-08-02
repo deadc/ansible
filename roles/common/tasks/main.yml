@@ -19,7 +19,7 @@
     - common
 
 - name: Authorized common users keys
-  authorized_key: "user={{ item.key }} key='{{ item.value.pub_key }}'"
+  authorized_key: "user={{ item.key }} state={{ item.value.state }} key='{{ item.value.pub_key }}'"
   with_dict:
     "{{ users | default({}) }}"
   tags:
