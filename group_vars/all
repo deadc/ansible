@@ -13,7 +13,7 @@ users:
 
    jdoe:
       name: 'John Doe'
-      state: 'absent'
+      state: 'present'
       pub_key: 'ssh-rsa ... jdoe@ruthless'
       groups:
         "{{ admin_group }}"
