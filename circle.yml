@@ -1,0 +1,13 @@
+machine:
+  timezone:
+    America/Sao_Paulo
+
+dependencies:
+  pre:
+    - pip install pytest ansible
+
+test:
+  override:
+    - ansible-playbook -i inventory tests.yml --syntax-check --connection=local --sudo
+    - ansible-playbook -i inventory tests.yml --diff --connection=local --sudo
+    - pytest -v roles/common/tests/common_tests.py
