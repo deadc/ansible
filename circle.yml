@@ -10,4 +10,4 @@ test:
   override:
     - ansible-playbook -i inventory tests.yml --syntax-check --connection=local --sudo
     - ansible-playbook -i inventory tests.yml --diff --connection=local --sudo
-    - testinfra -v roles/common/tests/common_tests.py
+    - testinfra -v roles/common/tests/pytest_common.py
