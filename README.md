@@ -1,3 +1,3 @@
 # ansible
 
-[![Build Status](https://semaphoreci.com/api/v1/deadcow/ansible/branches/master/badge.svg)](https://semaphoreci.com/deadcow/ansible)
+[![CircleCI](https://circleci.com/gh/deadc/ansible/tree/master.svg?style=shield)](https://circleci.com/gh/deadc/ansible/tree/master)
