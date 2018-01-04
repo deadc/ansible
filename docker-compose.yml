@@ -6,7 +6,7 @@
         context: .
         dockerfile: Dockerfile.centos
       volumes:
-        - .:/ansible
+        - /root/project:/ansible
       command: ./run.sh
 
     debian:
@@ -14,5 +14,5 @@
         context: .
         dockerfile: Dockerfile.debian
       volumes:
-        - .:/ansible
+        - /root/project:/ansible
       command: ./run.sh
