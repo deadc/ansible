@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: tmaier/docker-compose:latest
+
+    steps:
+      - checkout
+      - run:
+          name: Build ansible image - Debian
+          command: docker-compose build debian
+      - run:
+          name: Run goss tests
+          docker-compose run debian
