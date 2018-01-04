@@ -8,11 +8,11 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: [ Debian ]:  Build ansible image
+          name: [ Debian ]  Build ansible image
           command: docker-compose build debian
       - run:
           name: validate build
           command: docker-compose run debian ls -la / /ansible /root /root/*
       - run:
-          name: [ Debian ]: Run ansible tests
+          name: [ Debian ] Run ansible tests
           command: docker-compose run debian
