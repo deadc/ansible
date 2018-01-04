@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: start docker service
-          command: docker:dind
+          command: ls -la /etc/init.d
       - run:
           name: Build ansible image - Debian
           command: docker-compose build debian
