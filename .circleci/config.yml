@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: start docker service
+          command: docker:dind
+      - run:
           name: Build ansible image - Debian
           command: docker-compose build debian
       - run:
