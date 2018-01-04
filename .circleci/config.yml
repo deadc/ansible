@@ -10,5 +10,5 @@ jobs:
           name: Build ansible image - Debian
           command: docker-compose build debian
       - run:
-          name: Run goss tests
-          docker-compose run debian
+          name: Run ansible tests
+          command: docker-compose run debian
