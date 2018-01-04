@@ -1,0 +1,18 @@
+---
+  version: '2'
+  services:
+    centos:
+      build:
+        context: .
+        dockerfile: Dockerfile.centos
+      volumes:
+        - .:/ansible
+      command: /ansible/run.sh
+
+    debian:
+      build:
+        context: .
+        dockerfile: Dockerfile.debian
+      volumes:
+        - .:/ansible
+      command: /ansible/run.sh

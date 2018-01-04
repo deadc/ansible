@@ -2,12 +2,15 @@ machine:
   timezone:
     America/Sao_Paulo
 
-dependencies:
-  pre:
-    - pip install testinfra ansible
+  services:
+    - docker
 
-test:
+dependencies:
   override:
-    - ansible-playbook -i inventory tests.yml --syntax-check --connection=local --sudo
-    - ansible-playbook -i inventory tests.yml --diff --connection=local --sudo
-    - testinfra -v roles/common/tests/pytest_common.py
+    sudo pip install --upgrade docker-compose
+
+debian:
+  pre:
+    - docker-compose build debian
+  override:
+    - docker-compose run debian

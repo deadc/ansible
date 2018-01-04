@@ -1,0 +1,38 @@
+---
+  package:
+    vim:
+      installed: true
+    dnsutils:
+      installed: true
+    mtr-tiny:
+      installed: true
+    whois:
+      installed: true
+    net-tools:
+      installed: true
+    htop:
+      installed: true
+    sudo:
+      installed: true
+    telnet:
+      installed: true
+    python-pip:
+      installed: true
+    python-boto:
+      installed: true
+    mlocate:
+      installed: true
+    ntp:
+      installed: true
+    tcpdump:
+      installed: true
+    nmap:
+      installed: true
+    git:
+      installed: true
+    less:
+      installed: true
+    curl:
+      installed: true
+    tzdata:
+      installed: true

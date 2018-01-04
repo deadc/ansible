@@ -1,0 +1,8 @@
+FROM centos:6
+
+RUN yum -y install epel-release
+RUN yum -y install PyYAML python-crypto python-jinja2 python-paramiko python-setuptools python-six openssl sshpass
+RUN rpm -ivh https://releases.ansible.com/ansible/rpm/release/epel-6-x86_64/ansible-2.4.2.0-1.el6.ans.noarch.rpm
+RUN curl -fsSL https://goss.rocks/install | sh
+
+WORKDIR /ansible
