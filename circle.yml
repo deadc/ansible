@@ -7,7 +7,7 @@ machine:
 
 dependencies:
   override:
-    sudo pip install --upgrade docker-compose
+    - sudo pip install --upgrade docker-compose
 
 debian:
   pre:
