@@ -1,0 +1,4 @@
+---
+
+  gossfile:
+    roles/common/goss.yaml: {}
