@@ -17,5 +17,5 @@ else
   echo "RUN: Generating goss template"
   ansible -i localhost, --connection=local all -m setup --tree . &>/dev/null
   echo "RUN: Running tests"
-  goss --vars localhost -g goss.yaml validate
+  goss --vars localhost -g goss.yml validate
 fi
