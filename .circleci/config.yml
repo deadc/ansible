@@ -1,34 +1,14 @@
 version: 2
 jobs:
   build:
-    working_directory: /ansible
-    docker:
-      - image: tmaier/docker-compose:latest
+    machine:
+      image: circleci/classic:latest
 
     steps:
       - checkout
-      - setup_remote_docker
-      - restore_cache:
-          keys:
-            - ansible-{{ .Branch }}
-          paths:
-            - .
-      - run:
-          name: Load Docker image layer cache
-          command: |
-            set +o pipefail
-            docker load -i . | true
       - run:
           name: Debian  Build ansible image
           command: docker-compose build debian
-      - run:
-          name: Save Docker image layer cache
-          command: |
-            docker save -o . debian
-      - save_cache:
-          key: ansible-{{ .Branch }}-{{ epoch }}
-          paths:
-            - .
       - run:
           name: validate build
           command: docker-compose run debian ls -la / /ansible /root
