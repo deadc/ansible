@@ -7,11 +7,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Debian  Build ansible image
+          name: "[ Debian ]:  Build ansible image"
           command: docker-compose build debian
       - run:
-          name: validate build
-          command: docker-compose run debian ls -la / /ansible /root
+          name: "[ CentOS ]: Build ansible image"
+          command: docker-compose build centos
       - run:
-          name: Debian  Run ansible tests
+          name: "[ Debian ]: Run ansible tests"
           command: docker-compose run debian
+      - run:
+          name: "[ CentOS ]:  Run ansible tests"
+          command: docker-compose run centos

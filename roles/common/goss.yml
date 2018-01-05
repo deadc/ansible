@@ -1,5 +1,16 @@
 ---
   package:
+    {{ if eq .Vars.ansible_facts.ansible_os_family "RedHat" }}
+    vim-minimal:
+      installed: true
+    bind-utils:
+      installed: true
+    mtr:
+      installed: true
+    jwhois:
+      installed: true
+    {{ end }}
+    {{ if eq .Vars.ansible_facts.ansible_os_family "Debian" }}
     vim:
       installed: true
     dnsutils:
@@ -8,6 +19,7 @@
       installed: true
     whois:
       installed: true
+    {{ end }}
     net-tools:
       installed: true
     htop:

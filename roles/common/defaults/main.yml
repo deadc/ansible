@@ -1,6 +1,9 @@
 ---
 
+os_flavor: "{{ ansible_os_family | lower }}"
+
 packages:
+  debian:
     - vim
     - dnsutils
     - mtr-tiny
@@ -20,4 +23,23 @@ packages:
     - curl
     - tzdata
     - nginx
-
+  redhat:
+    - vim-minimal
+    - bind-utils
+    - mtr
+    - jwhois
+    - net-tools
+    - htop
+    - sudo
+    - telnet
+    - python-pip
+    - python-boto
+    - mlocate
+    - ntp
+    - tcpdump
+    - nmap
+    - git
+    - less
+    - curl
+    - tzdata
+    - nginx
